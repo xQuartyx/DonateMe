@@ -1,8 +1,1 @@
-repeat wait(1) until game:IsLoaded()
-repeat wait(1) until game:GetService("Players")
-local PlaceId = game.PlaceId
-if PlaceId == 8396586868 or PlaceId == 9264222904 then
-  loadstring(game:HttpGet"https://raw.githubusercontent.com/xQuartyx/DonateMe/main/AOPG")()
-elseif PlaceId == 2753915549 or PlaceId == 4442272183 or PlaceId == 7449423635 then
-  loadstring(game:HttpGet"https://raw.githubusercontent.com/xQuartyx/DonateMe/main/BF")()
-end
+game.Players.LocalPlayer:Kick("\n Join Discord To Get NewScript\n https://discord.gg/59fVYNYUSQ")
