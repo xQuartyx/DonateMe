@@ -10,4 +10,6 @@ elseif PlaceId == 8396586868 or PlaceId == 9432106399 then
     loadstring(game:HttpGet"https://raw.githubusercontent.com/xQuartyx/DonateMe/main/AOPG")()
 elseif PlaceId == 914010731 then
     loadstring(game:HttpGet"https://raw.githubusercontent.com/xQuartyx/DonateMe/main/Ro-Ghoul")()
+elseif PlaceId == 7785334488 or PlaceId == 4996049426 then
+    loadstring(game:HttpGet"https://raw.githubusercontent.com/xQuartyx/DonateMe/main/ASTD")()
 end
