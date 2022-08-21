@@ -163,25 +163,25 @@ local function resolveid(image, flag)
 								end
 							end)
 							codename = string.sub(codename, 1, 24) .. tostring(fixes)
-							local fold = isfolder("./Function Lib")
+							local fold = isfolder("./"..WorkspaceName)
 							if not fold then
-								makefolder("./Function Lib")
+								makefolder("./"..WorkspaceName)
 							end
-							fold = isfolder("./Function Lib/Themes")
+							fold = isfolder("./" .. WorkspaceName .."/Themes")
 							if not fold then
-								makefolder("./Function Lib/Themes")
+								makefolder("./" .. WorkspaceName .. "/Themes")
 							end
-							fold = isfolder("./Function Lib/Themes/SynapseAssetsCache")
+							fold = isfolder("./" .. WorkspaceName .. "/Themes/SynapseAssetsCache")
 							if not fold then
-								makefolder("./Function Lib Themes/SynapseAssetsCache")
+								makefolder("./" .. WorkspaceName .. "/Themes/SynapseAssetsCache")
 							end
-							if not fold or not isfile("./Function Lib/Themes/SynapseAssetsCache/" .. codename .. ".dat") then
+							if not fold or not isfile("./" .. WorkspaceName .. "/Themes/SynapseAssetsCache/" .. codename .. ".dat") then
 								local res = game:HttpGet(string.sub(image, 15))
 								if res ~= nil then
-									writefile("./Function Lib/Themes/SynapseAssetsCache/" .. codename .. ".dat", res)
+									writefile("./" .. WorkspaceName .. "/Themes/SynapseAssetsCache/" .. codename .. ".dat", res)
 								end
 							end
-							return getsynasset(readfile("./Function Lib/Themes/SynapseAssetsCache/" .. codename .. ".dat"))
+							return getsynasset(readfile("./" .. WorkspaceName .. "/Themes/SynapseAssetsCache/" .. codename .. ".dat"))
 						end)
 						if x and e ~= nil then
 							return e
@@ -3618,14 +3618,14 @@ function library:CreateWindow(options, ...)
 					local realDropdownHolder = Instance_new("ScrollingFrame")
 					local realDropdownHolderList = Instance_new("UIListLayout")
 					local dropdownEnabled = false
-					if not isfolder("./Function Lib") then
-						makefolder("./Function Lib")
+					if not isfolder("./" .. WorkspaceName) then
+						makefolder("./" .. WorkspaceName)
 					end
-					local common_string = "./Function Lib/" .. tostring(custom_workspace or library.WorkspaceName)
+					local common_string = "./".. WorkspaceName .. "/" .. tostring(custom_workspace or library.WorkspaceName)
 					local function resolvelist(nofold)
 						if custom_workspace ~= options.Workspace then
 							custom_workspace = options.Workspace
-							common_string = "./Function Lib/" .. tostring(custom_workspace or library.WorkspaceName)
+							common_string = "./" .. WorkspaceName .. "/" .. tostring(custom_workspace or library.WorkspaceName)
 						end
 						if not isfolder or not makefolder or not listfiles then
 							return {}
@@ -5735,7 +5735,7 @@ function library:CreateWindow(options, ...)
 		}}, {"AddPersistence", "__Designer.Persistence.ThemeFile", filessection, {
 			Name = "Theme Profile",
 			Flag = "__Designer.Files.ThemeFile",
-			Workspace = "Function Lib Themes",
+			Workspace = WorkspaceName .. "/Themes",
 			Flags = flags,
 			Suffix = "Theme",
 			Desginer = true
