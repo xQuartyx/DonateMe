@@ -5735,7 +5735,7 @@ function library:CreateWindow(options, ...)
 		}}, {"AddPersistence", "__Designer.Persistence.ThemeFile", filessection, {
 			Name = "Theme Profile",
 			Flag = "__Designer.Files.ThemeFile",
-			Workspace = WorkspaceName .. "/Themes",
+			Workspace = library.WorkspaceName .. "/Themes",
 			Flags = flags,
 			Suffix = "Theme",
 			Desginer = true
