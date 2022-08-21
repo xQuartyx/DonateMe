@@ -699,8 +699,8 @@ function library:CreateWindow(options, ...)
 	local windowoptions = options
 	local windowName = options.Name or "Unnamed Window"
 	options.Name = windowName
-	if windowName and #windowName > 0 and library.WorkspaceName == "Function Lib" then
-		library.WorkspaceName = convertfilename(windowName, "Function Lib")
+	if windowName and #windowName > 0 and library.WorkspaceName == "Quartyz Edition" then
+		library.WorkspaceName = convertfilename(windowName, "Quartyz Edition")
 	end
 	local FunctionLibrary = Instance_new("ScreenGui")
 	local main = Instance_new("Frame")
