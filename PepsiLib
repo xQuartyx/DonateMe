@@ -1,9 +1,9 @@
-if game:GetService("CoreGui"):FindFirstChild("PepsiLib") then
-    game:GetService("CoreGui"):FindFirstChild("PepsiLib"):Destroy()
+if game.CoreGui:FindFirstChild("PepsiUi") then
+    game.CoreGui:FindFirstChild("PepsiUi"):Destroy()
 end
-RainbowText = true
+
 local library = {
-	WorkspaceName = "Quartyz Edition",
+	WorkspaceName = "Name",
 	flags = {},
 	signals = {},
 	objects = {},
@@ -164,25 +164,25 @@ local function resolveid(image, flag)
 								end
 							end)
 							codename = string.sub(codename, 1, 24) .. tostring(fixes)
-							local fold = isfolder("./".. library.WorkspaceName)
+							local fold = isfolder("./Function Lib")
 							if not fold then
-								makefolder("./".. library.WorkspaceName)
+								makefolder("./Function Lib")
 							end
-							fold = isfolder("./" .. library.WorkspaceName .."/Themes")
+							fold = isfolder("./Function Lib/Themes")
 							if not fold then
-								makefolder("./" .. library.WorkspaceName .. "/Themes")
+								makefolder("./Function Lib/Themes")
 							end
-							fold = isfolder("./" .. library.WorkspaceName .. "/Themes/SynapseAssetsCache")
+							fold = isfolder("./Function Lib/Themes/SynapseAssetsCache")
 							if not fold then
-								makefolder("./" .. library.WorkspaceName .. "/Themes/SynapseAssetsCache")
+								makefolder("./Function Lib Themes/SynapseAssetsCache")
 							end
-							if not fold or not isfile("./" .. library.WorkspaceName .. "/Themes/SynapseAssetsCache/" .. codename .. ".dat") then
+							if not fold or not isfile("./Function Lib/Themes/SynapseAssetsCache/" .. codename .. ".dat") then
 								local res = game:HttpGet(string.sub(image, 15))
 								if res ~= nil then
-									writefile("./" .. library.WorkspaceName .. "/Themes/SynapseAssetsCache/" .. codename .. ".dat", res)
+									writefile("./Function Lib/Themes/SynapseAssetsCache/" .. codename .. ".dat", res)
 								end
 							end
-							return getsynasset(readfile("./" .. library.WorkspaceName .. "/Themes/SynapseAssetsCache/" .. codename .. ".dat"))
+							return getsynasset(readfile("./Function Lib/Themes/SynapseAssetsCache/" .. codename .. ".dat"))
 						end)
 						if x and e ~= nil then
 							return e
@@ -700,8 +700,8 @@ function library:CreateWindow(options, ...)
 	local windowoptions = options
 	local windowName = options.Name or "Unnamed Window"
 	options.Name = windowName
-	if windowName and #windowName > 0 and library.WorkspaceName == "Quartyz Edition" then
-		library.WorkspaceName = convertfilename(windowName, "Quartyz Edition")
+	if windowName and #windowName > 0 and library.WorkspaceName == "Function Lib" then
+		library.WorkspaceName = convertfilename(windowName, "Function Lib")
 	end
 	local FunctionLibrary = Instance_new("ScreenGui")
 	local main = Instance_new("Frame")
@@ -720,7 +720,7 @@ function library:CreateWindow(options, ...)
 	library.globals["__Window" .. options.Name] = {
 		submenuOpen = submenuOpen
 	}
-	FunctionLibrary.Name = "PepsiLib"
+	FunctionLibrary.Name = "PepsiUi"
 	FunctionLibrary.Parent = library.gui_parent
 	FunctionLibrary.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 	FunctionLibrary.DisplayOrder = 10
@@ -3619,14 +3619,14 @@ function library:CreateWindow(options, ...)
 					local realDropdownHolder = Instance_new("ScrollingFrame")
 					local realDropdownHolderList = Instance_new("UIListLayout")
 					local dropdownEnabled = false
-					if not isfolder("./" .. library.WorkspaceName) then
-						makefolder("./" .. library.WorkspaceName)
+					if not isfolder("./Function Lib") then
+						makefolder("./Function Lib")
 					end
-					local common_string = "./".. library.WorkspaceName .. "/" .. tostring(custom_workspace or library.WorkspaceName)
+					local common_string = "./Function Lib/" .. tostring(custom_workspace or library.WorkspaceName)
 					local function resolvelist(nofold)
 						if custom_workspace ~= options.Workspace then
 							custom_workspace = options.Workspace
-							common_string = "./" .. library.WorkspaceName .. "/" .. tostring(custom_workspace or library.WorkspaceName)
+							common_string = "./Function Lib/" .. tostring(custom_workspace or library.WorkspaceName)
 						end
 						if not isfolder or not makefolder or not listfiles then
 							return {}
@@ -5752,7 +5752,7 @@ function library:CreateWindow(options, ...)
 		}}, {"AddPersistence", "__Designer.Persistence.ThemeFile", filessection, {
 			Name = "Theme Profile",
 			Flag = "__Designer.Files.ThemeFile",
-			Workspace = library.WorkspaceName .. "/Themes",
+			Workspace = "Function Lib Themes",
 			Flags = flags,
 			Suffix = "Theme",
 			Desginer = true
