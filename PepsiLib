@@ -2515,7 +2515,7 @@ function library:CreateWindow(options, ...)
 				local default = labelHeadline.Text
 				local objectdata = {
 					Options = options,
-					Name = options.Name,
+					Name = flag,
 					Flag = flag,
 					Type = "Label",
 					Default = default,
