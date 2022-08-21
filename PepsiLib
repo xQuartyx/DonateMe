@@ -1,7 +1,6 @@
 if game:GetService("CoreGui"):FindFirstChild("PepsiLib") then
     game:GetService("CoreGui"):FindFirstChild("PepsiLib"):Destroy()
 end
-RainbowText = true
 local library = {
 	WorkspaceName = "Quartyz Edition",
 	flags = {},
@@ -164,25 +163,25 @@ local function resolveid(image, flag)
 								end
 							end)
 							codename = string.sub(codename, 1, 24) .. tostring(fixes)
-							local fold = isfolder("./".. library.WorkspaceName)
+							local fold = isfolder("./"..WorkspaceName)
 							if not fold then
-								makefolder("./".. library.WorkspaceName)
+								makefolder("./"..WorkspaceName)
 							end
-							fold = isfolder("./" .. library.WorkspaceName .."/Themes")
+							fold = isfolder("./" .. WorkspaceName .."/Themes")
 							if not fold then
-								makefolder("./" .. library.WorkspaceName .. "/Themes")
+								makefolder("./" .. WorkspaceName .. "/Themes")
 							end
-							fold = isfolder("./" .. library.WorkspaceName .. "/Themes/SynapseAssetsCache")
+							fold = isfolder("./" .. WorkspaceName .. "/Themes/SynapseAssetsCache")
 							if not fold then
-								makefolder("./" .. library.WorkspaceName .. "/Themes/SynapseAssetsCache")
+								makefolder("./" .. WorkspaceName .. "/Themes/SynapseAssetsCache")
 							end
-							if not fold or not isfile("./" .. library.WorkspaceName .. "/Themes/SynapseAssetsCache/" .. codename .. ".dat") then
+							if not fold or not isfile("./" .. WorkspaceName .. "/Themes/SynapseAssetsCache/" .. codename .. ".dat") then
 								local res = game:HttpGet(string.sub(image, 15))
 								if res ~= nil then
-									writefile("./" .. library.WorkspaceName .. "/Themes/SynapseAssetsCache/" .. codename .. ".dat", res)
+									writefile("./" .. WorkspaceName .. "/Themes/SynapseAssetsCache/" .. codename .. ".dat", res)
 								end
 							end
-							return getsynasset(readfile("./" .. library.WorkspaceName .. "/Themes/SynapseAssetsCache/" .. codename .. ".dat"))
+							return getsynasset(readfile("./" .. WorkspaceName .. "/Themes/SynapseAssetsCache/" .. codename .. ".dat"))
 						end)
 						if x and e ~= nil then
 							return e
@@ -2516,7 +2515,7 @@ function library:CreateWindow(options, ...)
 				local default = labelHeadline.Text
 				local objectdata = {
 					Options = options,
-					Name = flag,
+					Name = options.Name,
 					Flag = flag,
 					Type = "Label",
 					Default = default,
@@ -3619,14 +3618,14 @@ function library:CreateWindow(options, ...)
 					local realDropdownHolder = Instance_new("ScrollingFrame")
 					local realDropdownHolderList = Instance_new("UIListLayout")
 					local dropdownEnabled = false
-					if not isfolder("./" .. library.WorkspaceName) then
-						makefolder("./" .. library.WorkspaceName)
+					if not isfolder("./" .. WorkspaceName) then
+						makefolder("./" .. WorkspaceName)
 					end
-					local common_string = "./".. library.WorkspaceName .. "/" .. tostring(custom_workspace or library.WorkspaceName)
+					local common_string = "./".. WorkspaceName .. "/" .. tostring(custom_workspace or library.WorkspaceName)
 					local function resolvelist(nofold)
 						if custom_workspace ~= options.Workspace then
 							custom_workspace = options.Workspace
-							common_string = "./" .. library.WorkspaceName .. "/" .. tostring(custom_workspace or library.WorkspaceName)
+							common_string = "./" .. WorkspaceName .. "/" .. tostring(custom_workspace or library.WorkspaceName)
 						end
 						if not isfolder or not makefolder or not listfiles then
 							return {}
@@ -5685,34 +5684,18 @@ function library:CreateWindow(options, ...)
 		for _, v in next, {{"Main", "main"}, {"Background", "background"}, {"Outer Border", "outerBorder"}, {"Inner Border", "innerBorder"}, {"Top Gradient", "topGradient"}, {"Bottom Gradient", "bottomGradient"}, {"Section Background", "sectionBackground"}, {"Section", "section"}, {"Element Text", "elementText"}, {"Other Element Text", "otherElementText"}, {"Tab Text", "tabText"}, {"Element Border", "elementBorder"}, {"Selected Option", "selectedOption"}, {"Unselected Option", "unselectedOption"}, {"Hovered Option Top", "hoveredOptionTop"}, {"Unhovered Option Top", "unhoveredOptionTop"}, {"Hovered Option Bottom", "hoveredOptionBottom"}, {"Unhovered Option Bottom", "unhoveredOptionBottom"}} do
 			local nam, codename = v[1], v[2]
 			local cflag = "__Designer.Colors." .. codename
-			if RainbowText and (nam == "Tab Text" or nam == "Main" or nam == "Element Text" or nam == "Other Element Text") then
-			    designerelements[codename] = {
-    				Return = colorsection:AddColorpicker({
-    					Name = nam,
-    					Flag = cflag,
-    					Rainbow = true,
-    					Value = library.colors[codename],
-    					Callback = function(v, y)
-    						library.colors[codename] = v or y
-    					end,
-    					__designer = 1
-    				}),
-    				Flag = cflag
-    			}
-			else
-			    designerelements[codename] = {
-    				Return = colorsection:AddColorpicker({
-    					Name = nam,
-    					Flag = cflag,
-    					Value = library.colors[codename],
-    					Callback = function(v, y)
-    						library.colors[codename] = v or y
-    					end,
-    					__designer = 1
-    				}),
-    				Flag = cflag
-    			}
-		    end
+			designerelements[codename] = {
+				Return = colorsection:AddColorpicker({
+					Name = nam,
+					Flag = cflag,
+					Value = library.colors[codename],
+					Callback = function(v, y)
+						library.colors[codename] = v or y
+					end,
+					__designer = 1
+				}),
+				Flag = cflag
+			}
 		end
 		local flags = {}
 		local persistoptions = {
@@ -5752,7 +5735,7 @@ function library:CreateWindow(options, ...)
 		}}, {"AddPersistence", "__Designer.Persistence.ThemeFile", filessection, {
 			Name = "Theme Profile",
 			Flag = "__Designer.Files.ThemeFile",
-			Workspace = library.WorkspaceName .. "/Themes",
+			Workspace = WorkspaceName .. "/Themes",
 			Flags = flags,
 			Suffix = "Theme",
 			Desginer = true
