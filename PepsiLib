@@ -2532,7 +2532,7 @@ function library:CreateWindow(options, ...)
 					end,
 					Reset = function()
 						return set(nil, default)
-					end
+					end,
 					Delete = function()
 						newLabel:Destroy()
 						return 
