@@ -2533,6 +2533,10 @@ function library:CreateWindow(options, ...)
 					Reset = function()
 						return set(nil, default)
 					end
+					Delete = function()
+						newLabel:Destroy()
+						return 
+					end
 				}
 				tabFunctions.Flags[flag], sectionFunctions.Flags[flag], elements[flag] = objectdata, objectdata, objectdata
 				return objectdata
