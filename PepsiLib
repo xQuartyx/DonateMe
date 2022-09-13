@@ -3,7 +3,7 @@ if game.CoreGui:FindFirstChild("PepsiUi") then
 end
 
 local library = {
-	WorkspaceName = "Name",
+	WorkspaceName = "",
 	flags = {},
 	signals = {},
 	objects = {},
@@ -18,7 +18,7 @@ local library = {
 		easingDirection = Enum.EasingDirection.Out
 	},
 	colors = {
-		main = Color3.fromRGB(80, 245, 245),
+		main = Color3.fromRGB(255, 255, 255),
 		background = Color3.fromRGB(40, 40, 40),
 		outerBorder = Color3.fromRGB(15, 15, 15),
 		innerBorder = Color3.fromRGB(73, 63, 73),
@@ -164,25 +164,25 @@ local function resolveid(image, flag)
 								end
 							end)
 							codename = string.sub(codename, 1, 24) .. tostring(fixes)
-							local fold = isfolder("./Function Lib")
+							local fold = isfolder("./Quartyz Edition")
 							if not fold then
-								makefolder("./Function Lib")
+								makefolder("./Quartyz Edition")
 							end
-							fold = isfolder("./Function Lib/Themes")
+							fold = isfolder("./Quartyz Edition/Themes")
 							if not fold then
-								makefolder("./Function Lib/Themes")
+								makefolder("./Quartyz Edition/Themes")
 							end
-							fold = isfolder("./Function Lib/Themes/SynapseAssetsCache")
+							fold = isfolder("./Quartyz Edition/Themes/SynapseAssetsCache")
 							if not fold then
-								makefolder("./Function Lib Themes/SynapseAssetsCache")
+								makefolder("./Quartyz Edition Themes/SynapseAssetsCache")
 							end
-							if not fold or not isfile("./Function Lib/Themes/SynapseAssetsCache/" .. codename .. ".dat") then
+							if not fold or not isfile("./Quartyz Edition/Themes/SynapseAssetsCache/" .. codename .. ".dat") then
 								local res = game:HttpGet(string.sub(image, 15))
 								if res ~= nil then
-									writefile("./Function Lib/Themes/SynapseAssetsCache/" .. codename .. ".dat", res)
+									writefile("./Quartyz Edition/Themes/SynapseAssetsCache/" .. codename .. ".dat", res)
 								end
 							end
-							return getsynasset(readfile("./Function Lib/Themes/SynapseAssetsCache/" .. codename .. ".dat"))
+							return getsynasset(readfile("./Quartyz Edition/Themes/SynapseAssetsCache/" .. codename .. ".dat"))
 						end)
 						if x and e ~= nil then
 							return e
@@ -700,8 +700,8 @@ function library:CreateWindow(options, ...)
 	local windowoptions = options
 	local windowName = options.Name or "Unnamed Window"
 	options.Name = windowName
-	if windowName and #windowName > 0 and library.WorkspaceName == "Function Lib" then
-		library.WorkspaceName = convertfilename(windowName, "Function Lib")
+	if windowName and #windowName > 0 and library.WorkspaceName == "Quartyz Edition" then
+		library.WorkspaceName = convertfilename(windowName, "Quartyz Edition")
 	end
 	local FunctionLibrary = Instance_new("ScreenGui")
 	local main = Instance_new("Frame")
@@ -3624,14 +3624,14 @@ function library:CreateWindow(options, ...)
 					local realDropdownHolder = Instance_new("ScrollingFrame")
 					local realDropdownHolderList = Instance_new("UIListLayout")
 					local dropdownEnabled = false
-					if not isfolder("./Function Lib") then
-						makefolder("./Function Lib")
+					if not isfolder("./Quartyz Edition") then
+						makefolder("./Quartyz Edition")
 					end
-					local common_string = "./Function Lib/" .. tostring(custom_workspace or library.WorkspaceName)
+					local common_string = "./Quartyz Edition/" .. tostring(custom_workspace or library.WorkspaceName)
 					local function resolvelist(nofold)
 						if custom_workspace ~= options.Workspace then
 							custom_workspace = options.Workspace
-							common_string = "./Function Lib/" .. tostring(custom_workspace or library.WorkspaceName)
+							common_string = "./Quartyz Edition/" .. tostring(custom_workspace or library.WorkspaceName)
 						end
 						if not isfolder or not makefolder or not listfiles then
 							return {}
@@ -4027,6 +4027,7 @@ function library:CreateWindow(options, ...)
 						end
 						return str
 					end
+					print(val)
 					if val ~= nil then
 						Set(val)
 					else
@@ -4308,6 +4309,7 @@ function library:CreateWindow(options, ...)
 					local function update()
 						dropdownName, custom_workspace, persistiveflags, suffix, callback, loadcallback, savecallback, postload, postsave = options.Name or dropdownName, options.Workspace or library.WorkspaceName, options.Persistive or options.Flags or "all", options.Suffix, options.Callback, options.LoadCallback, options.SaveCallback, options.PostLoadCallback, options.PostSaveCallback
 						local sstr = tostring(library_flags[flagName])
+						print(custom_workspace)
 						if dropdownSelection.Text ~= sstr then
 							dropdownSelection.Text = sstr
 						end
@@ -4506,7 +4508,7 @@ function library:CreateWindow(options, ...)
 				dropdownSelection.Size = UDim2.fromScale(0.97, 1)
 				dropdownSelection.ZIndex = 5
 				dropdownSelection.Font = Enum.Font.Code
-				dropdownSelection.Text = (passed_multiselect == "string" and multiselect) or (multiselect and (blankstring or "Select Item(s)")) or (selectedOption and tostring(selectedOption)) or blankstring or "No Blank String"
+				dropdownSelection.Text = (passed_multiselect == "string" and multiselect) or ((multiselect and table.concat(selectedOption, ", "):len() < 30) and table.concat(selectedOption, ", ") or "Select Item(s)") or (multiselect and (blankstring or "Select Item(s)")) or (selectedOption and tostring(selectedOption)) or blankstring or "No Blank String"
 				dropdownSelection.TextColor3 = library.colors.otherElementText
 				colored[1 + #colored] = {dropdownSelection, "TextColor3", "otherElementText"}
 				dropdownSelection.TextSize = 14
@@ -4618,7 +4620,7 @@ function library:CreateWindow(options, ...)
 							proceed = 1
 						end
 					end
-					dropdownSelection.Text = (passed_multiselect == "string" and multiselect) or blankstring or "Select Item(s)"
+					dropdownSelection.Text = ((multiselect and table.concat(selectedOption, ", "):len() < 30) and table.concat(selectedOption, ", ") or "Select Item(s)") or (passed_multiselect == "string" and multiselect) or blankstring or "Select Item(s)"
 					if proceed and callback then
 						task.spawn(callback, selectedOption, cloned)
 					end
@@ -4732,7 +4734,7 @@ function library:CreateWindow(options, ...)
 									newOption.BackgroundColor3 = (togged and library.colors.selectedOption) or library.colors.topGradient
 									newOption.ImageColor3 = (togged and library.colors.unselectedOption) or library.colors.bottomGradient
 									optionButton.TextColor3 = (togged and library.colors.main) or library.colors.otherElementText
-									dropdownSelection.Text = (passed_multiselect == "string" and multiselect) or blankstring or "Select Item(s)"
+									dropdownSelection.Text = ((multiselect and table.concat(selectedOption, ", "):len() < 30) and table.concat(selectedOption, ", ") or "Select Item(s)") or (passed_multiselect == "string" and multiselect) or blankstring or "Select Item(s)"
 									if callback then
 										task.spawn(callback, selectedOption, cloned)
 									end
