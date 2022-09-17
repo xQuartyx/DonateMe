@@ -4027,7 +4027,6 @@ function library:CreateWindow(options, ...)
 						end
 						return str
 					end
-					print(val)
 					if val ~= nil then
 						Set(val)
 					else
