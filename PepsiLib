@@ -1,5 +1,5 @@
-if game.CoreGui:FindFirstChild("PepsiUi") then
-    game.CoreGui:FindFirstChild("PepsiUi"):Destroy()
+if game.CoreGui:FindFirstChild("QuartyzHub") then
+    game.CoreGui:FindFirstChild("QuartyzHub"):Destroy()
 end
 
 local library = {
@@ -720,7 +720,7 @@ function library:CreateWindow(options, ...)
 	library.globals["__Window" .. options.Name] = {
 		submenuOpen = submenuOpen
 	}
-	FunctionLibrary.Name = "PepsiUi"
+	FunctionLibrary.Name = "QuartyzHub"
 	FunctionLibrary.Parent = library.gui_parent
 	FunctionLibrary.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 	FunctionLibrary.DisplayOrder = 10
