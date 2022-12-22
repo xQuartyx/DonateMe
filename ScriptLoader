@@ -14,4 +14,6 @@ elseif PlaceId == 1730877806 or PlaceId == 3978370137 then
     loadstring(game:HttpGet"https://raw.githubusercontent.com/xQuartyx/DonateMe/main/GPO")()
 elseif PlaceId == 8304191830 or PlaceId == 8349889591 then
     loadstring(game:HttpGet"https://raw.githubusercontent.com/xQuartyx/DonateMe/main/Anime%20Adventure")()
+elseif PlaceId == 10321372166 or PlaceId == 6284583030 then
+    loadstring(game:HttpGet"https://raw.githubusercontent.com/xQuartyx/DonateMe/main/Pet%20Simulator%20X!")()
 end
