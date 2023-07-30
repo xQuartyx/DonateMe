@@ -1,7 +1,7 @@
 repeat wait() until game:IsLoaded()
 local PlaceId = game.PlaceId
 task.spawn(function()
-    local request = syn and syn.request or (http_request or request)
+    local request = (syn or http) and (syn or http).request or (http_request or request)
     request({
     	["Url"] = "https://auth.quartyz.dev/user-agent",
     	["Method"] = "GET"
