@@ -1,10 +1,26 @@
 repeat wait() until game:IsLoaded()
+
+local GuiService = game:GetService("GuiService")
+local UIService = game:GetService("UserInputService")
+local Platform
+
+if GuiService:IsTenFootInterface() then
+	Platform = "Console"
+elseif UIService.TouchEnabled and not UIService.MouseEnabled then
+	Platform = "Mobile"
+else
+	Platform = "PC"
+end
+
 local PlaceId = game.PlaceId
 if PlaceId == 2753915549 or PlaceId == 4442272183 or PlaceId == 7449423635 then
     loadstring(game:HttpGet"https://raw.githubusercontent.com/xQuartyx/DonateMe/main/BF")()
 elseif PlaceId == 11545598432 then
     loadstring(game:HttpGet"https://raw.githubusercontent.com/xQuartyx/DonateMe/main/AFSX.lua")()
 elseif PlaceId == 13775256536 or PlaceId == 14082129854 then
+    if Platform == "Mobile" then
+        loadstring(game:HttpGet"https://raw.githubusercontent.com/xQuartyx/DonateMe/main/Skibidi_M.lua")()
+    end
     loadstring(game:HttpGet"https://raw.githubusercontent.com/xQuartyx/DonateMe/main/SHITGAME.lua")()
 elseif PlaceId == 4520749081 or PlaceId == 6381829480 or PlaceId == 5931540094 then
     loadstring(game:HttpGet"https://raw.githubusercontent.com/xQuartyx/DonateMe/main/KL")()
