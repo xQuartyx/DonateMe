@@ -19,6 +19,7 @@ elseif PlaceId == 11545598432 then
 elseif PlaceId == 13775256536 or PlaceId == 14082129854 then
     if Platform == "Mobile" then
         loadstring(game:HttpGet"https://raw.githubusercontent.com/xQuartyx/DonateMe/main/Skibidi_M.lua")()
+	return
     end
     loadstring(game:HttpGet"https://raw.githubusercontent.com/xQuartyx/DonateMe/main/SHITGAME.lua")()
 elseif PlaceId == 4520749081 or PlaceId == 6381829480 or PlaceId == 5931540094 then
