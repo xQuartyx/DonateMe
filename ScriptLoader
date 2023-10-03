@@ -16,6 +16,10 @@ if PlaceId == 2753915549 or PlaceId == 4442272183 or PlaceId == 7449423635 then
     loadstring(game:HttpGet"https://raw.githubusercontent.com/xQuartyx/DonateMe/main/BF")()
 elseif PlaceId == 11545598432 then
     loadstring(game:HttpGet"https://raw.githubusercontent.com/xQuartyx/DonateMe/main/AFSX.lua")()
+elseif PlaceId == 14433762945 then
+    loadstring(game:HttpGet"https://raw.githubusercontent.com/xQuartyx/DonateMe/main/ACS.lua")()
+elseif PlaceId == 8554378337 then
+    loadstring(game:HttpGet"https://raw.githubusercontent.com/xQuartyx/DonateMe/main/WFS.lua")()
 elseif PlaceId == 13775256536 or PlaceId == 14082129854 then
     if Platform == "Mobile" then
         loadstring(game:HttpGet"https://raw.githubusercontent.com/xQuartyx/DonateMe/main/Skibidi_M.lua")()
