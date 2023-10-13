@@ -18,7 +18,7 @@ elseif PlaceId == 11545598432 then
     loadstring(game:HttpGet"https://raw.githubusercontent.com/xQuartyx/DonateMe/main/AFSX.lua")()
 elseif PlaceId == 14433762945 then
     loadstring(game:HttpGet"https://raw.githubusercontent.com/xQuartyx/DonateMe/main/ACS.lua")()
-elseif PlaceId == 13772394625 then
+elseif game.GameId == 4777817887 then
     loadstring(game:HttpGet"https://raw.githubusercontent.com/xQuartyx/DonateMe/main/Blade%20Ball")()
 elseif PlaceId == 8554378337 then
     loadstring(game:HttpGet"https://raw.githubusercontent.com/xQuartyx/DonateMe/main/WFS.lua")()
