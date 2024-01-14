@@ -44,4 +44,6 @@ elseif PlaceId == 10321372166 or PlaceId == 6284583030 then
     loadstring(game:HttpGet"https://raw.githubusercontent.com/xQuartyx/DonateMe/main/Pet%20Simulator%20X!")()
 elseif PlaceId == 6918802270 then
     loadstring(game:HttpGet"https://raw.githubusercontent.com/xQuartyx/DonateMe/main/Project%20New%20World")()
+elseif PlaceId == 8737899170 then
+    loadstring(game:HttpGet"https://raw.githubusercontent.com/xQuartyx/DonateMe/main/PS99")()
 end
