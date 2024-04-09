@@ -14,6 +14,8 @@ print(Platform)
 local PlaceId = game.PlaceId
 if PlaceId == 2753915549 or PlaceId == 4442272183 or PlaceId == 7449423635 then
     loadstring(game:HttpGet"https://raw.githubusercontent.com/xQuartyx/DonateMe/main/BF")()
+elseif PlaceId == 16510724413 then
+    loadstring(game:HttpGet"https://raw.githubusercontent.com/xQuartyx/DonateMe/main/PetCatcher.lua")()
 elseif PlaceId == 11545598432 then
     loadstring(game:HttpGet"https://raw.githubusercontent.com/xQuartyx/DonateMe/main/AFSX.lua")()
 elseif PlaceId == 14433762945 then
