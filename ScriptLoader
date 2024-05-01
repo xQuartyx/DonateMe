@@ -18,6 +18,8 @@ if PlaceId == 2753915549 or PlaceId == 4442272183 or PlaceId == 7449423635 then
 	return
     end
     loadstring(game:HttpGet"https://raw.githubusercontent.com/xQuartyx/DonateMe/main/BF")()
+elseif PlaceId == 6897167394 then
+    loadstring(game:HttpGet"https://raw.githubusercontent.com/xQuartyx/DonateMe/main/Demon%20Piece")()
 elseif PlaceId == 16510724413 then
     loadstring(game:HttpGet"https://raw.githubusercontent.com/xQuartyx/DonateMe/main/PetCatcher.lua")()
 elseif PlaceId == 11545598432 then
