@@ -17,7 +17,7 @@ if PlaceId == 2753915549 or PlaceId == 4442272183 or PlaceId == 7449423635 then
         loadstring(game:HttpGet"https://raw.githubusercontent.com/xQuartyx/DonateMe/main/BFPVP")()
 	return
     end
-    if Platform == "Mobile" and not Default == "PC" then
+    if Platform == "Mobile" and Device ~= "PC" then
 	loadstring(game:HttpGet"https://raw.githubusercontent.com/xQuartyx/DonateMe/main/BFMobile")()
 	return
     end
