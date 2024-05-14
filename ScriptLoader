@@ -43,7 +43,7 @@ elseif PlaceId == 8554378337 then
     loadstring(game:HttpGet"https://raw.githubusercontent.com/xQuartyx/DonateMe/main/WFS.lua")()
 elseif PlaceId == 13775256536 or PlaceId == 14082129854 then
     loadstring(game:HttpGet"https://raw.githubusercontent.com/xQuartyx/DonateMe/main/Toilet%20Tower%20Defense")()
-elseif PlaceId == 4520749081 or PlaceId == 6381829480 or PlaceId == 5931540094 then
+elseif GameId == 1451439645 then
     loadstring(game:HttpGet"https://raw.githubusercontent.com/xQuartyx/DonateMe/main/KL")()
 elseif PlaceId == 537413528 then
     loadstring(game:HttpGet"https://raw.githubusercontent.com/xQuartyx/DonateMe/main/BABFT")()
