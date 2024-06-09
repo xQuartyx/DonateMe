@@ -1,0 +1,26 @@
+Setting = {
+    ["Start"] = true,
+    ["Mastery"] = {
+        ["Enabled"] = true,
+    },
+
+    -- Focus settings is options for increase chance to get anything is set `true`
+    ["Focus"] = {
+
+        ["Godhuman"] = true,
+        -- If it in sea 3 and not unlock DeathStep/Sharkman Karate it will go back to sea 2 and get it
+    },
+
+    ["AutoBuyFruit"] = true,
+    ["ImportantFruit"] = {
+        [1] = "Dragon-Dragon",
+        [3] = "Dough-Dough",
+        [4] = "Rumble-Rumble",
+        [6] = "Human-Human: Buddha",
+        [8] = "Dark-Dark",
+    },
+    ["FPSCAP"] = 15,
+    ["LOWGRAPHIC"] = true
+}
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/xQuartyx/DonateMe/main/85fb67dd5c2b5fcfabc2b38748f20c68.lua"))()
